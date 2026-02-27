@@ -40,7 +40,7 @@ echo "$BOOKS" | while read -r BOOK; do
     xargs --delimiter='\n' sed -i '/^\s*\/\/ --snip--/d'
   fd --type=file --extension=html |
     xargs --delimiter='\n' sed -i -E "s/#\s+(.*)$/<span class='boring'>\1<\/span>/"
-  7z a -tzip "$BOOK".epub * >/dev/null
+  7z a -tzip "$BOOK".epub -- * >/dev/null
   mv "$BOOK".epub ..
   popd >/dev/null
   rm -rf "$BOOK"
